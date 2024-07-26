@@ -1,0 +1,11 @@
+Parameters:
+model_type: RandomForestRegressor
+n_estimators: 100
+numerical_features: ['accommodates', 'bathrooms', 'beds', 'latitude', 'longitude']
+categorical_features: ['market', 'room_type']
+
+Metrics:
+cv_mae_mean: 47.23744561174635
+cv_mae_std: 0.5399517605426499
+
+test_mae: 47.03104397033615
