@@ -1,0 +1,14 @@
+pandas
+snowflake-connector-python
+python-dotenv
+nltk
+wordcloud
+matplotlib
+numpy
+argparse
+joblib
+scikit-learn
+shiny
+ipyleaflet
+shinywidgets
+ipywidgets
