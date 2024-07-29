@@ -1,0 +1,306 @@
+[
+    {
+        "params": {
+            "model_type": "RandomForestRegressor",
+            "n_estimators": 100,
+            "numerical_features": [
+                "accommodates",
+                "bathrooms",
+                "beds",
+                "latitude",
+                "longitude"
+            ],
+            "categorical_features": [
+                "market",
+                "room_type"
+            ]
+        },
+        "metrics": {
+            "cv_mae_mean": 46.47281665908854,
+            "cv_rmse_mean": 70.84577587455219,
+            "cv_mae_std": 0.5674524796982611,
+            "cv_rmse_std": 1.04449284821307,
+            "test_mae": 46.807811665713665,
+            "test_rmse": 71.14605717994418
+        },
+        "training_details": {
+            "train_size": 73216,
+            "test_size": 8136,
+            "train_duration": "0:03:08.254395"
+        }
+    },
+    {
+        "params": {
+            "model_type": "LinearRegression",
+            "numerical_features": [
+                "accommodates",
+                "bathrooms",
+                "beds",
+                "latitude",
+                "longitude"
+            ],
+            "categorical_features": [
+                "market",
+                "room_type"
+            ]
+        },
+        "metrics": {
+            "cv_mae_mean": 60.733191676720665,
+            "cv_rmse_mean": 84.97659104900093,
+            "cv_mae_std": 1.0032153034361404,
+            "cv_rmse_std": 1.6771050830464163,
+            "test_mae": 61.26708840339233,
+            "test_rmse": 85.1873660314185
+        },
+        "training_details": {
+            "train_size": 73216,
+            "test_size": 8136,
+            "train_duration": "0:00:08.817451"
+        }
+    },
+    {
+        "params": {
+            "model_type": "KNeighborsRegressor",
+            "n_neighbors": 10,
+            "numerical_features": [
+                "accommodates",
+                "bathrooms",
+                "beds",
+                "latitude",
+                "longitude"
+            ],
+            "categorical_features": [
+                "market",
+                "room_type"
+            ]
+        },
+        "metrics": {
+            "cv_mae_mean": 51.434659994087795,
+            "cv_rmse_mean": 76.50161184987508,
+            "cv_mae_std": 0.984753959500203,
+            "cv_rmse_std": 1.666549545570801,
+            "test_mae": 51.45116764995084,
+            "test_rmse": 75.84948559706409
+        },
+        "training_details": {
+            "train_size": 73216,
+            "test_size": 8136,
+            "train_duration": "0:12:11.810846"
+        }
+    },
+    {
+        "params": {
+            "model_type": "GradientBoostingRegressor",
+            "n_estimators": 100,
+            "numerical_features": [
+                "accommodates",
+                "bathrooms",
+                "beds",
+                "latitude",
+                "longitude"
+            ],
+            "categorical_features": [
+                "market",
+                "room_type"
+            ]
+        },
+        "metrics": {
+            "cv_mae_mean": 54.09226032668462,
+            "cv_rmse_mean": 77.32513719137503,
+            "cv_mae_std": 0.9375948118599629,
+            "cv_rmse_std": 1.373304083022066,
+            "test_mae": 54.481120114430425,
+            "test_rmse": 77.4974761411388
+        },
+        "training_details": {
+            "train_size": 73216,
+            "test_size": 8136,
+            "train_duration": "0:00:36.266176"
+        }
+    },
+    {
+        "params": {
+            "model_type": "AdaBoostRegressor",
+            "numerical_features": [
+                "accommodates",
+                "bathrooms",
+                "beds",
+                "latitude",
+                "longitude"
+            ],
+            "categorical_features": [
+                "market",
+                "room_type"
+            ]
+        },
+        "metrics": {
+            "cv_mae_mean": 83.62202066573491,
+            "cv_rmse_mean": 99.4203885663346,
+            "cv_mae_std": 4.06567801183973,
+            "cv_rmse_std": 4.002340542575144,
+            "test_mae": 81.32730294098262,
+            "test_rmse": 96.8330009420818
+        },
+        "training_details": {
+            "train_size": 73216,
+            "test_size": 8136,
+            "train_duration": "0:00:12.745961"
+        }
+    },
+    {
+        "params": {
+            "model_type": "RandomForestRegressor",
+            "random_state": 42,
+            "numerical_features": [
+                "accommodates",
+                "bathrooms",
+                "beds",
+                "latitude",
+                "longitude"
+            ],
+            "categorical_features": [
+                "market",
+                "room_type"
+            ]
+        },
+        "metrics": {
+            "cv_mae_mean": 46.50635537650818,
+            "cv_rmse_mean": 70.90018514058328,
+            "cv_mae_std": 0.7346689387313384,
+            "cv_rmse_std": 1.0958393755800606,
+            "test_mae": 46.255934242749646,
+            "test_rmse": 69.6113630548531
+        },
+        "training_details": {
+            "train_size": 73216,
+            "test_size": 8136,
+            "train_duration": "0:01:38.120315"
+        }
+    },
+    {
+        "params": {
+            "model_type": "RandomForestRegressor",
+            "max_depth": 30,
+            "min_samples_leaf": 2,
+            "n_estimators": 300,
+            "random_state": 42,
+            "numerical_features": [
+                "accommodates",
+                "bathrooms",
+                "beds",
+                "latitude",
+                "longitude"
+            ],
+            "categorical_features": [
+                "market",
+                "room_type"
+            ],
+            "best_params": {
+                "regressor__max_depth": 30,
+                "regressor__max_features": "auto",
+                "regressor__min_samples_leaf": 2,
+                "regressor__min_samples_split": 2,
+                "regressor__n_estimators": 300
+            }
+        },
+        "metrics": {
+            "cv_mae_mean": 46.29743909095708,
+            "cv_rmse_mean": 70.22919660817408,
+            "cv_mae_std": 0.8013612934958289,
+            "cv_rmse_std": 1.1175636115221617,
+            "test_mae": 46.041895386942365,
+            "test_rmse": 69.08103970267469
+        },
+        "training_details": {
+            "train_size": 73216,
+            "test_size": 8136,
+            "train_duration": "1:29:12.168667"
+        }
+    },
+    {
+        "params": {
+            "model_type": "RandomForestRegressor(max_depth=30, min_samples_leaf=2, n_estimators=300,\n                      random_state=42)",
+            "numerical_features": [
+                "accommodates",
+                "bathrooms",
+                "beds",
+                "latitude",
+                "longitude"
+            ],
+            "categorical_features": [
+                "market",
+                "room_type"
+            ]
+        },
+        "metrics": {
+            "cv_mae_mean": 46.29743909095708,
+            "cv_rmse_mean": 70.22919660817408,
+            "cv_mae_std": 0.8013612934958289,
+            "cv_rmse_std": 1.1175636115221617,
+            "test_mae": 46.041895386942365,
+            "test_rmse": 69.08103970267469
+        },
+        "training_details": {
+            "train_size": 73216,
+            "test_size": 8136,
+            "train_duration": "0:04:44.631836"
+        }
+    },
+    {
+        "params": {
+            "model_type": "RandomForestRegressor(max_depth=30, min_samples_leaf=2, n_estimators=300,\n                      random_state=42)",
+            "numerical_features": [
+                "accommodates",
+                "bathrooms",
+                "beds",
+                "latitude",
+                "longitude"
+            ],
+            "categorical_features": [
+                "room_type"
+            ]
+        },
+        "metrics": {
+            "cv_mae_mean": 46.30882571932126,
+            "cv_rmse_mean": 70.24058685333421,
+            "cv_mae_std": 0.7982663665211016,
+            "cv_rmse_std": 1.118663686048779,
+            "test_mae": 46.03598729547387,
+            "test_rmse": 69.04635509143566
+        },
+        "training_details": {
+            "train_size": 73216,
+            "test_size": 8136,
+            "train_duration": "0:04:13.207002"
+        }
+    },
+    {
+        "params": {
+            "model_type": "RandomForestRegressor(max_depth=30, min_samples_leaf=2, n_estimators=300,\n                      random_state=42)",
+            "numerical_features": [
+                "accommodates",
+                "bathrooms",
+                "beds",
+                "latitude",
+                "longitude"
+            ],
+            "categorical_features": [
+                "market",
+                "room_type"
+            ]
+        },
+        "metrics": {
+            "cv_mae_mean": 46.29743909095708,
+            "cv_rmse_mean": 70.22919660817408,
+            "cv_mae_std": 0.8013612934958289,
+            "cv_rmse_std": 1.1175636115221617,
+            "test_mae": 46.041895386942365,
+            "test_rmse": 69.08103970267469
+        },
+        "training_details": {
+            "train_size": 73216,
+            "test_size": 8136,
+            "train_duration": "0:04:28.495961"
+        }
+    }
+]
