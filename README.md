@@ -6,7 +6,7 @@ This project is a web-based dashboard that helps Airbnb hosts determine the best
 
 - Interactive dashboard with user inputs for listing details
 - Price prediction using a trained machine learning model
-- Map visualization to select the potential listing location in target markets.
+- Map visualization to select the potential AirBnB listing location
 
 ## Installation
 
