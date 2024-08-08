@@ -1,3 +1,14 @@
+# Ignore environment file
 .env
-# Ignore .joblib files
+
+# Ignore joblib files
 *.joblib
+
+# Ignore CSV files
+*.csv
+
+# Ignore GeoJSON files
+*.geojson
+
+# Ignore HTML files
+*.html
