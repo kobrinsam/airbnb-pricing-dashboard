@@ -12,3 +12,5 @@
 
 # Ignore HTML files
 *.html
+
+__pycache__/
