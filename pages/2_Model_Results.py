@@ -42,14 +42,13 @@ def load_model(allow_output_mutation=True):
     model_data = read_s3_file('models/regression_pipeline.joblib')
     return joblib.load(BytesIO(model_data))
 
+@st.cache_data
+def load_experiment_logs():
+    json_data = read_s3_file('models/experiment_log.json')
+    return json.loads(json_data)
 
-# Get the current working directory
-current_dir = os.path.dirname(os.path.abspath(__file__))
-# Construct the full path to the experiment_log.json file
-json_path = os.path.join(current_dir, '..', 'Model', 'experiment_log.json')
-
-with open(json_path, 'r') as f:
-    experiment_logs = json.load(f)
+# load experiment logs
+experiment_logs = load_experiment_logs()
 
 # Extract relevant information from log file
 extracted_data = []
