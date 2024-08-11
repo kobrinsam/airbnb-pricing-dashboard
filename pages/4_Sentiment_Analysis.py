@@ -79,8 +79,8 @@ def fetch_data(query):
 
 
 # Clear the progress bar and status text when done
-progress_bar.empty()
-status_text.text("Download complete!")
+# progress_bar.empty()
+# status_text.text("Download complete!")
 
 stop_words = set(stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
