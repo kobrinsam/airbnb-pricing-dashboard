@@ -15,46 +15,40 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.feature_extraction.text import TfidfVectorizer
 import streamlit as st
-# st.set_option('deprecation.showPyplotGlobalUse', False)
 
-# test streamlit environment variables
+
 TEMP_USER=os.getenv('SNOWSQL_TEMP_USER')
 TEMP_USER_PASSWORD=os.getenv('SNOWSQL_TEMP_PWD')
 SNOWFLAKE_ACCOUNT=os.getenv('SNOWFLAKE_ACCOUNT')
 
-try:
-    conn = snowflake.connector.connect(
-        user=TEMP_USER,
-        password=TEMP_USER_PASSWORD,
-        account=SNOWFLAKE_ACCOUNT,
-        warehouse='COMPUTE_WH',
-        database='AIRBNB',
-        schema='FEATURE_STORE'
-    )
+# Cache Snowflake connection to avoid reconnecting on each run
+@st.cache_resource
+def connect_to_snowflake():
+    try:
+        conn = snowflake.connector.connect(
+            user=TEMP_USER,
+            password=TEMP_USER_PASSWORD,
+            account=SNOWFLAKE_ACCOUNT,
+            warehouse='COMPUTE_WH',
+            database='AIRBNB',
+            schema='FEATURE_STORE'
+        )
+        print(f'Connected to Snowflake successfully')
+        return conn
+    except Exception as e:
+        print(f'Failed to connect to Snowflake due to error code {e}')
+        return None
+    
+conn = connect_to_snowflake()
 
-    print(f'Connected to Snowflake successfully')
+# Cache NLTK resource downloads
+@st.cache_data
+def load_nltk_resources():
+    libraries = ['stopwords', 'punkt', 'wordnet', 'omw-1.4', 'vader_lexicon']
+    for lib in libraries:
+        nltk.download(lib)
 
-except Exception as e:
-    print(f'Failed to connect to Snowflake on due to error code {e}')
-
-
-# Initialize the progress bar for NLTK download progress
-progress_bar = st.progress(0)
-status_text = st.empty()
-
-# Download NLTK libraries with progress updates
-libraries = [
-    'stopwords',
-    'punkt',
-    'wordnet',
-    'omw-1.4',
-    'vader_lexicon'
-]
-
-for i, lib in enumerate(libraries):
-    status_text.text(f"Downloading {lib}...")
-    nltk.download(lib)
-    progress_bar.progress((i + 1) / len(libraries))
+load_nltk_resources()
 
 
 # create market mapping
@@ -174,7 +168,7 @@ def ngram_analysis(df, n=2):
 # Function to run all functions
 def create_visualizations(city):
     # Enclose the city name in single quotes
-    city_query = f"SELECT * FROM reviews_cleaned SAMPLE (50) WHERE market = '{city}';" # randomly sample 50% of the data
+    city_query = f"SELECT * FROM reviews_cleaned SAMPLE (25) WHERE market = '{city}';" # randomly sample 50% of the data
     
     city_df = fetch_data(city_query)
     city_df = city_df.rename(columns={'CLEAN_COMMENTS': 'clean_comments'})
@@ -211,3 +205,4 @@ if st.button('Generate Visualizations'):
     # Show a progress bar and execute the function
     with st.spinner('Generating visualizations...'):
         create_visualizations(selected_market)
+    plt.close('all') # clear figures to free memory
