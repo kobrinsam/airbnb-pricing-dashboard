@@ -12,3 +12,7 @@ shiny
 ipyleaflet
 shinywidgets
 ipywidgets
+folium
+streamlit
+streamlit-folium
+h3
