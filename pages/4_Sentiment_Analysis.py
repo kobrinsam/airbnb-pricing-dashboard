@@ -21,41 +21,45 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
 # Load environment variables from a .env file
-load_dotenv()
+# load_dotenv()
 
-try:
-    TEMP_USER = os.getenv('SNOWSQL_TEMP_USER')
-    TEMP_USER_PASSWORD = os.getenv('SNOWSQL_TEMP_PWD')
+# try:
+#     TEMP_USER = os.getenv('SNOWSQL_TEMP_USER')
+#     TEMP_USER_PASSWORD = os.getenv('SNOWSQL_TEMP_PWD')
     
-    if not TEMP_USER:
-        raise ValueError("Environment variable SNOWSQL_TEMP_USER must be set")
-    if not TEMP_USER_PASSWORD:
-        raise ValueError("Environment variable SNOWSQL_TEMP_PWD must be set")
+#     if not TEMP_USER:
+#         raise ValueError("Environment variable SNOWSQL_TEMP_USER must be set")
+#     if not TEMP_USER_PASSWORD:
+#         raise ValueError("Environment variable SNOWSQL_TEMP_PWD must be set")
 
-except ValueError as ve:
-    print(f"Error: {ve}")
+# except ValueError as ve:
+#     print(f"Error: {ve}")
     
-except Exception as e:
-    print(f"An unexpected error occurred: {e}")
+# except Exception as e:
+#     print(f"An unexpected error occurred: {e}")
 
 
 # Establish connection to Snowflake
-current_time = datetime.now().strftime('%Y-%m-%d %H:%M%S')
+# current_time = datetime.now().strftime('%Y-%m-%d %H:%M%S')
+
+TEMP_USER=st.secrets["snowsql_temp_user"]
+TEMP_USER_PASSWORD=st.secrets["snowsql_temp_pwd"]
+SNOWFLAKE_ACCOUNT=st.secrets["snowflake_account"]
 
 try:
     conn = snowflake.connector.connect(
         user=TEMP_USER,
         password=TEMP_USER_PASSWORD,
-        account='ygeuort-alb19263',
+        account=SNOWFLAKE_ACCOUNT,
         warehouse='COMPUTE_WH',
         database='AIRBNB',
         schema='FEATURE_STORE'
     )
 
-    print(f'Connected to Snowflake successfully at {current_time}')
+    print(f'Connected to Snowflake successfully')
 
 except Exception as e:
-    print(f'Failed to connect to Snowflake on {current_time} due to error code {e}')
+    print(f'Failed to connect to Snowflake on due to error code {e}')
 
 
 # Initialize the progress bar for NLTK download progress
