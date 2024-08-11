@@ -18,30 +18,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import streamlit as st
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-
-
-# Load environment variables from a .env file
-# load_dotenv()
-
-# try:
-#     TEMP_USER = os.getenv('SNOWSQL_TEMP_USER')
-#     TEMP_USER_PASSWORD = os.getenv('SNOWSQL_TEMP_PWD')
-    
-#     if not TEMP_USER:
-#         raise ValueError("Environment variable SNOWSQL_TEMP_USER must be set")
-#     if not TEMP_USER_PASSWORD:
-#         raise ValueError("Environment variable SNOWSQL_TEMP_PWD must be set")
-
-# except ValueError as ve:
-#     print(f"Error: {ve}")
-    
-# except Exception as e:
-#     print(f"An unexpected error occurred: {e}")
-
-
-# Establish connection to Snowflake
-# current_time = datetime.now().strftime('%Y-%m-%d %H:%M%S')
-
 TEMP_USER=st.secrets["snowsql_temp_user"]
 TEMP_USER_PASSWORD=st.secrets["snowsql_temp_pwd"]
 SNOWFLAKE_ACCOUNT=st.secrets["snowflake_account"]
