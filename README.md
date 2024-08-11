@@ -1,6 +1,6 @@
 # Airbnb Pricing Dashboard
 
-This project is a web-based dashboard that helps Airbnb hosts determine the best possible price for their listings. It uses machine learning to predict listing prices based on various factors such as location, room type and number of guests.
+This project is a web-based dashboard that helps Airbnb hosts determine the best possible price for their listings. It uses a random forests machine learning model to predict listing prices based on various factors such as location, room type and number of guests.
 
 ## Features
 
