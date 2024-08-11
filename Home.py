@@ -25,7 +25,7 @@ st.markdown("""
 
 st.markdown("""
     <div style="text-align: center;">
-        SIADS 699 | Team 14: Big House <br> Sam Kobrin, Alex Chan, Sachiko Uchikoshi <br> - 2024 August -
+        SIADS 699 | Team 14: Big House <br> Sam Kobrin, Sachiko Uchikoshi, Alex Chan <br> - 2024 August -
     </div>
 """, unsafe_allow_html=True)
 
