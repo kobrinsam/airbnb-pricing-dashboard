@@ -18,9 +18,9 @@ import streamlit as st
 # st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # test streamlit environment variables
-TEMP_USER=os.environ["snowsql_temp_user"]
-TEMP_USER_PASSWORD=os.environ["snowsql_temp_pwd"]
-SNOWFLAKE_ACCOUNT=os.environ["snowflake_account"]
+TEMP_USER=os.getenv('SNOWSQL_TEMP_USER')
+TEMP_USER_PASSWORD=os.getenv('SNOWSQL_TEMP_PWD')
+SNOWFLAKE_ACCOUNT=os.getenv('SNOWFLAKE_ACCOUNT')
 
 try:
     conn = snowflake.connector.connect(
