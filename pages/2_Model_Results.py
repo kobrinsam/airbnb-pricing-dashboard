@@ -1,7 +1,6 @@
 import streamlit as st
 import sys
 import os
-st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # Add the parent directory to the system path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", 'Plots')))
