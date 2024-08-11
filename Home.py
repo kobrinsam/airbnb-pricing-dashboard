@@ -5,6 +5,8 @@ st.set_page_config(
     page_icon="🏠",
 )
 
+st.image("photo_1.png", width=300)
+
 st.markdown("""
     <div style="text-align: center;">
         <h1>Airbnb Price Prediction</h1>
@@ -29,6 +31,6 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# st.image("hana.PNG", width=300)
+
 
 st.sidebar.success("Select a page above.")

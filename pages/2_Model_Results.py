@@ -37,8 +37,7 @@ def read_s3_file(file_key):
     obj = s3.get_object(Bucket=bucket_name, Key=file_key)
     return obj['Body'].read()
 
-@st.cache_data
-def load_model(allow_output_mutation=True):
+def load_model():
     model_data = read_s3_file('models/regression_pipeline.joblib')
     return joblib.load(BytesIO(model_data))
 
