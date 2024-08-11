@@ -20,6 +20,11 @@ This project is a web-based dashboard that helps Airbnb hosts determine the best
 2. Enter the details of your Airbnb listing.
 3. The dashboard will display the predicted list price for your AirBnb listing.
 
+## Data Access Statement
+The data used in this project was accessed from Inside AirBnB on July 7, 2024. The data can be acessed here http://insideairbnb.com/get-the-data. The dataset includes listing and review information collected during June and July of 2024 for the following target markets: Albany, NY; Los Angeles, CA; San Francisco, CA; New York, NY; Chicago, IL; Seattle, WA; and Washington, DC.
+
+Please ensure compliance with Inside AirBnB's license for usage and distribution before accessing or using the data. For more details, refer to their data policies at Inside AirBnB Data Policies and visit their main website at Inside AirBnB.
+
 ## License
 
 This project is licensed under the MIT LICENSE - see the [LICENSE](LICENSE) file for details.
