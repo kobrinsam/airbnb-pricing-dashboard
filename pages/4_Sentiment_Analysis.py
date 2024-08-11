@@ -18,9 +18,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import streamlit as st
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-TEMP_USER=st.secrets["snowsql_temp_user"]
-TEMP_USER_PASSWORD=st.secrets["snowsql_temp_pwd"]
-SNOWFLAKE_ACCOUNT=st.secrets["snowflake_account"]
+TEMP_USER=os.environ["snowsql_temp_user"]
+TEMP_USER_PASSWORD=os.environ["snowsql_temp_pwd"]
+SNOWFLAKE_ACCOUNT=os.environ["snowflake_account"]
 
 try:
     conn = snowflake.connector.connect(
