@@ -121,7 +121,7 @@ def plot_feature_importance():
     feature_importance_df = feature_importance_df.sort_values('Importance')
 
     # Create the bar chart
-    plt.figure(figsize=(10, 6))
+    fig = plt.figure(figsize=(10, 6))
     plt.barh(feature_importance_df['Feature'], feature_importance_df['Importance'], color='darkblue')
 
     # Add a title and axis titles
@@ -129,8 +129,8 @@ def plot_feature_importance():
     plt.xlabel('Importance')
     plt.ylabel('Feature Name')
 
-    # Show the plot
-    plt.show()
+    # Return the figure
+    return fig
 
 st.title('Model Performance')
 fig1 = plot_model_performance()
