@@ -16,3 +16,4 @@ folium
 streamlit
 streamlit-folium
 h3
+boto3
