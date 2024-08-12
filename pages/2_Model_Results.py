@@ -49,6 +49,8 @@ def load_experiment_logs():
 # load experiment logs
 experiment_logs = load_experiment_logs()
 
+st.title('Model Results')
+
 # Extract relevant information from log file
 extracted_data = []
 

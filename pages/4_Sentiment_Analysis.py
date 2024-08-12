@@ -46,6 +46,7 @@ def load_nltk_resources():
 
 load_nltk_resources()
 
+st.title('Sentiment Analysis')
 
 # create market mapping
 markets_dict = {
