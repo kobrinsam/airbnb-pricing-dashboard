@@ -84,6 +84,8 @@ if 'selected_market' not in st.session_state:
 if 'map_data' not in st.session_state:
     st.session_state['map_data'] = None
 
+st.subheader(f'Median Prices for {selected_market}')
+
 # Additional feature: Filter listings and generate predictions
 if selected_market != st.session_state['selected_market']:
     # Market has changed so update the map
@@ -124,7 +126,7 @@ if st.session_state['map_data'] is not None:
     folium_static(st.session_state['m'], width=700, height=500)
 
 
-st.write('Distribution of Airbnb Prices for All Markets')
+st.subheader('Airbnb Prices for All Markets')
 
 def plot_histogram():
     # Plot the histogram
