@@ -148,7 +148,7 @@ def plot_boxplot():
     # Create a Seaborn boxplot for rental prices
     fig = plt.figure(figsize=(12, 6))
     plt.title('Boxplot of Airbnb Prices for Each Market')
-    sns.boxplot(data=df, x='market', y='price')
+    sns.boxplot(data=listings_cleaned_h3, x='market', y='price')
 
     return fig
 
