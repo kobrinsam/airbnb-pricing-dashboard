@@ -80,7 +80,7 @@ def plot_model_performance():
     plt.barh(y_pos - 0.2, df['test_rmse'], 0.4, color='lightblue', label='Test RMSE')
 
     # Add a title and axis titles
-    plt.title('AirBnB List Price Prediction Model Performance', fontsize=20)
+    plt.title('Airbnb List Price Prediction Model Performance', fontsize=20)
     plt.xlabel('Test Set Error (USD)')
     plt.ylabel('Model Type')
 
@@ -132,10 +132,13 @@ def plot_feature_importance():
     # Return the figure
     return fig
 
-st.title('Model Performance')
+st.subheader('Model Performance')
 fig1 = plot_model_performance()
 st.pyplot(fig1)
 
-st.title('Feature Performance')
+st.subheader('Feature Performance')
 fig2 = plot_feature_importance()
 st.pyplot(fig2)
+
+st.subheader('Prediction Errors for H3 Model')
+st.write('Place holder for histogram of prediction errors')
