@@ -26,6 +26,7 @@ sys.path.append(os.path.abspath(os.path.join(current_directory, '..')))
 from helper_functions import connect_to_snowflake, get_data
 
 st.title('Sentiment Analysis')
+st.write('Results displayed are for 10,000 randomly sampled customer reviews')
 
 # Cache Snowflake connection to avoid reconnecting on each run
 @st.cache_resource
@@ -138,7 +139,7 @@ def ngram_analysis(df, n=2):
 # Function to run all functions
 def create_visualizations(city):
     
-    sql_query = f"SELECT market, clean_comments, review_date FROM REVIEWS_SENTIMENT_SCORES SAMPLE (10000 ROWS) WHERE market = '{city}';" 
+    sql_query = f"SELECT market, clean_comments, review_date, sentiment_score FROM REVIEWS_SENTIMENT_SCORES SAMPLE (10000 ROWS) WHERE market = '{city}';" 
     
     city_df = get_data(sql_query, conn)
     # Column names are capitalized in Snowflake
@@ -172,5 +173,4 @@ def create_visualizations(city):
 if st.button('Generate Visualizations'):
     # Show a progress bar and execute the function
     with st.spinner('Generating visualizations...'):
-        st.write('Results displayed are for 10,000 randomly sampled customer reviews')
         create_visualizations(selected_market)
