@@ -144,5 +144,17 @@ def plot_histogram():
     # Show the plot
     return fig
 
+def plot_boxplot():
+    # Create a Seaborn boxplot for rental prices
+    fig = plt.figure(figsize=(12, 6))
+    plt.title('Boxplot of Airbnb Prices for Each Market')
+    sns.boxplot(data=df, x='market', y='price')
+
+    return fig
+
+
 fig1 = plot_histogram()
 st.pyplot(fig1)
+
+fig2 = plot_boxplot()
+st.pyplot(fig2)
