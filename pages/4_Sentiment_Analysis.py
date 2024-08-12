@@ -6,11 +6,8 @@ from dotenv import load_dotenv
 import re
 import nltk
 from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-from nltk.tokenize import word_tokenize
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -83,7 +80,7 @@ def fetch_data(query):
 # status_text.text("Download complete!")
 
 stop_words = set(stopwords.words('english'))
-lemmatizer = WordNetLemmatizer()
+
 
 def wordcloud(df):
     # Generate word cloud for cleaned comments
@@ -97,22 +94,6 @@ def wordcloud(df):
 
     # Use Streamlit to display the figure
     plt.show()
-
-
-# Initialize VADER sentiment analyzer
-sid = SentimentIntensityAnalyzer()
-
-# Function to compute sentiment score
-def get_sentiment_score(text):
-    return sid.polarity_scores(text)['compound']
-
-
-def apply_sentiment_score(df):
-    # Apply sentiment analysis to each cleaned comment
-    df['sentiment_score'] = df['clean_comments'].apply(get_sentiment_score)
-
-    # Classify sentiment based on score
-    df['sentiment'] = df['sentiment_score'].apply(lambda x: 'positive' if x >= 0.05 else ('negative' if x <= -0.05 else 'neutral'))
 
 
 def sentiment_distribution(df):
@@ -168,17 +149,14 @@ def ngram_analysis(df, n=2):
 # Function to run all functions
 def create_visualizations(city):
     # Enclose the city name in single quotes
-    city_query = f"SELECT * FROM reviews_cleaned SAMPLE (25) WHERE market = '{city}';" # randomly sample 50% of the data
+    city_query = f"SELECT * FROM REVIEWS_SENTIMENT_SCORES SAMPLE (25) WHERE market = '{city}';" # randomly sample 25% of the data
     
     city_df = fetch_data(city_query)
-    city_df = city_df.rename(columns={'CLEAN_COMMENTS': 'clean_comments'})
+    city_df.columns = [col.lower() for col in city_df.columns]
         
     # Generate and display the word cloud
     city_wordcloud = wordcloud(city_df)
     st.pyplot()  # Display the word cloud figure
-
-    # Apply sentiment score
-    apply_sentiment_score(city_df)
     
     # Display sentiment histogram
     sentiment_hist = sentiment_histogram(city_df)
@@ -205,4 +183,3 @@ if st.button('Generate Visualizations'):
     # Show a progress bar and execute the function
     with st.spinner('Generating visualizations...'):
         create_visualizations(selected_market)
-    plt.close('all') # clear figures to free memory
