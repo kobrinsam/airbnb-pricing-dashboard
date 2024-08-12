@@ -139,7 +139,7 @@ def ngram_analysis(df, n=2):
 # Function to run all functions
 def create_visualizations(city):
     
-    sql_query = f"SELECT market, clean_comments, review_date, sentiment_score FROM REVIEWS_SENTIMENT_SCORES SAMPLE (10000 ROWS) WHERE market = '{city}';" 
+    sql_query = f"SELECT market, clean_comments, review_date, sentiment, sentiment_score FROM REVIEWS_SENTIMENT_SCORES SAMPLE (10000 ROWS) WHERE market = '{city}';" 
     
     city_df = get_data(sql_query, conn)
     # Column names are capitalized in Snowflake
