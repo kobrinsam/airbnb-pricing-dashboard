@@ -13,30 +13,29 @@ from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.feature_extraction.text import TfidfVectorizer
 import streamlit as st
 
+import sys
+import os
 
-TEMP_USER=os.getenv('SNOWSQL_TEMP_USER')
-TEMP_USER_PASSWORD=os.getenv('SNOWSQL_TEMP_PWD')
-SNOWFLAKE_ACCOUNT=os.getenv('SNOWFLAKE_ACCOUNT')
+# Get the current working directory
+current_directory = os.getcwd()
+
+# Add the parent directory to sys.path
+sys.path.append(os.path.abspath(os.path.join(current_directory, '..')))
+
+# Import the helper_functions module
+from helper_functions import connect_to_snowflake
 
 # Cache Snowflake connection to avoid reconnecting on each run
 @st.cache_resource
-def connect_to_snowflake():
-    try:
-        conn = snowflake.connector.connect(
-            user=TEMP_USER,
-            password=TEMP_USER_PASSWORD,
-            account=SNOWFLAKE_ACCOUNT,
-            warehouse='COMPUTE_WH',
-            database='AIRBNB',
-            schema='FEATURE_STORE'
-        )
-        print(f'Connected to Snowflake successfully')
-        return conn
-    except Exception as e:
-        print(f'Failed to connect to Snowflake due to error code {e}')
-        return None
-    
-conn = connect_to_snowflake()
+def get_snowflake_connection():
+    """
+    Function to establish and return a cached Snowflake connection.
+    """
+    conn = connect_to_snowflake(schema_name='FEATURE_STORE')
+    return conn
+
+# Use the cached Snowflake connection
+conn = get_snowflake_connection()
 
 # Cache NLTK resource downloads
 @st.cache_data
@@ -145,6 +144,7 @@ def ngram_analysis(df, n=2):
     plt.xticks(rotation=45, fontsize=10, ha='right')  # Set fontsize for x-ticks
     plt.tight_layout()
     plt.show()
+
 
 # Function to run all functions
 def create_visualizations(city):
