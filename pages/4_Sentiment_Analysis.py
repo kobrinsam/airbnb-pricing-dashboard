@@ -165,11 +165,12 @@ def create_visualizations(city):
     st.pyplot(ngram_fig_2)
     
     # Display n-gram analysis for trigrams
-    ngram_fig_3 = ngram_analysis(city_df, n=3)
-    st.pyplot(ngram_fig_3)
+    # ngram_fig_3 = ngram_analysis(city_df, n=3)
+    # st.pyplot(ngram_fig_3)
 
 # Trigger download of data and generate visualizations
 if st.button('Generate Visualizations'):
     # Show a progress bar and execute the function
     with st.spinner('Generating visualizations...'):
+        st.write('Results displayed are for 10,000 randomly sampled customer reviews')
         create_visualizations(selected_market)
