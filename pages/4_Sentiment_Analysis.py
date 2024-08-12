@@ -114,10 +114,10 @@ def sentiment_histogram(df):
 
 def trends_over_time(df):
     # Convert REVIEW_DATE to datetime
-    df['REVIEW_DATE'] = pd.to_datetime(df['REVIEW_DATE'])
+    df['review_date'] = pd.to_datetime(df['review_date'])
 
     # Group by date and sentiment to count occurrences
-    sentiment_trend = df.groupby([df['REVIEW_DATE'].dt.date, 'sentiment']).size().unstack().fillna(0)
+    sentiment_trend = df.groupby([df['review_date'].dt.date, 'sentiment']).size().unstack().fillna(0)
 
     # Plot the trends over time
     sentiment_trend.plot(kind='line', figsize=(15, 7))
