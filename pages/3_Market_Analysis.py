@@ -84,7 +84,9 @@ if 'selected_market' not in st.session_state:
 if 'map_data' not in st.session_state:
     st.session_state['map_data'] = None
 
-st.subheader(f'Median Prices for {selected_market}')
+st.subheader(f'Median Prices for {market}')
+st.write('Hexagons shown have a diameter of 1.4 km or 0.87 miles')
+st.write('Place holder for min, max, median prices for market')
 
 # Additional feature: Filter listings and generate predictions
 if selected_market != st.session_state['selected_market']:
@@ -126,7 +128,7 @@ if st.session_state['map_data'] is not None:
     folium_static(st.session_state['m'], width=700, height=500)
 
 
-st.subheader('Airbnb Prices for All Markets')
+st.divider()
 
 def plot_histogram():
     # Plot the histogram
@@ -136,7 +138,7 @@ def plot_histogram():
     plt.hist(listings_cleaned_h3['price'].dropna(), bins=30, edgecolor='black')
 
     # Add titles and labels
-    plt.title('Histogram of Airbnb Prices for All Markets')
+    plt.title('Distribution of Airbnb Prices for Markets')
     plt.xlabel('Price')
     plt.ylabel('Frequency')
 
