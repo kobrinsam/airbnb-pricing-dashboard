@@ -11,6 +11,8 @@ from io import BytesIO, StringIO
 import os
 from dotenv import load_dotenv
 
+st.title('Market Analysis')
+
 # Load environment variables from a .env file
 load_dotenv()
 
@@ -58,8 +60,6 @@ def load_geojson_data():
 listings_cleaned_h3 = load_listings_data()
 geojson_data = load_geojson_data()
 
-st.title('Market Analysis')
-
 # create market mapping
 markets_dict = {
     'albany':'Albany',
@@ -105,7 +105,7 @@ if selected_market != st.session_state['selected_market']:
         data=filtered_listings,
         columns=['h3_index', 'price_median'],
         key_on='feature.properties.h3_index',
-        fill_color='PuBu',
+        fill_color='OrRd',
         fill_opacity=0.5,
         line_opacity=0.2,
         legend_name='Median Price'
@@ -122,3 +122,22 @@ if selected_market != st.session_state['selected_market']:
 
 if st.session_state['map_data'] is not None:
     folium_static(st.session_state['m'], width=700, height=500)
+
+
+st.write('Distribution of Airbnb Prices for All Markets')
+# Plot the histogram
+plt.figure(figsize=(10, 6))
+
+# Drop NaN values and create the histogram
+plt.hist(listings_cleaned_h3['price'].dropna(), bins=30, edgecolor='black')
+
+# Add titles and labels
+plt.title('Histogram of Airbnb Prices for All Markets')
+plt.xlabel('Price')
+plt.ylabel('Frequency')
+
+# Display grid for better readability
+plt.grid(True)
+
+# Show the plot
+plt.show()

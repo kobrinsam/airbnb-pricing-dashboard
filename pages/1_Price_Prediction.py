@@ -9,6 +9,9 @@ from io import BytesIO, StringIO
 import os
 from dotenv import load_dotenv
 
+# Streamlit interface
+st.title("Airbnb Price Recommendation")
+
 # Load environment variables from a .env file
 load_dotenv()
 
@@ -64,10 +67,6 @@ pipeline = load_model()
 hexagon_aggregated_data = load_hexagon_data()
 listings_cleaned_h3 = load_listings_data()
 geojson_data = load_geojson_data()
-
-
-# Streamlit interface
-st.title("Airbnb Price Recommendation")
 
 # create market mapping
 markets_dict = {

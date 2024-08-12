@@ -25,6 +25,8 @@ sys.path.append(os.path.abspath(os.path.join(current_directory, '..')))
 # Import the helper_functions module
 from helper_functions import connect_to_snowflake, get_data
 
+st.title('Sentiment Analysis')
+
 # Cache Snowflake connection to avoid reconnecting on each run
 @st.cache_resource
 def get_snowflake_connection():
@@ -45,8 +47,6 @@ def load_nltk_resources():
         nltk.download(lib)
 
 load_nltk_resources()
-
-st.title('Sentiment Analysis')
 
 # create market mapping
 markets_dict = {
