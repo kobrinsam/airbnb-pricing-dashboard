@@ -7,7 +7,7 @@ st.set_page_config(
 
 
 # Display the image with the custom class
-st.image("photo_1.png", use_column_width='auto')
+st.image("photo_1.png", use_column_width=True)
 
 st.markdown("""
     <div style="text-align: center;">
