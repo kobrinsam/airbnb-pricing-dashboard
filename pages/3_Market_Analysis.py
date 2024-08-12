@@ -73,10 +73,6 @@ markets_dict = {
 
 # User input fields
 market = st.selectbox("Market",  sorted(markets_dict.values()))
-room_type = st.selectbox("Room Type", ['Entire home/apt', 'Hotel room','Private room','Shared room'])
-beds = st.slider("Number of Beds", min_value=0, max_value=30, value=0)
-accommodates = st.slider("Number of Accommodates", min_value=1, max_value=16, value=0)
-bathrooms = st.slider("Number of Bathrooms", min_value=0, max_value=20, value=0)
 
 # Map the selected market back, e.g., New York City to new-york-city
 reverse_markets_dict = {v: k for k, v in markets_dict.items()}
@@ -109,10 +105,10 @@ if selected_market != st.session_state['selected_market']:
         data=filtered_listings,
         columns=['h3_index', 'price_median'],
         key_on='feature.properties.h3_index',
-        fill_color='OrRd',
+        fill_color='YlGnBu_09',
         fill_opacity=0.5,
         line_opacity=0.2,
-        legend_name='Predicted Price'
+        legend_name='Median Price'
     ).add_to(m)
 
     # Add tile layers for different viewing modes
