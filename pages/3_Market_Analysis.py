@@ -130,6 +130,8 @@ if st.session_state['map_data'] is not None:
 
 st.divider()
 
+st.write("This histogram shows the range of Airbnb prices across markets to help you see how your property’s price compares to others. Use this to check if your pricing is competitive and consider adjustments to align with market trends.")
+
 def plot_histogram():
     # Plot the histogram
     fig = plt.figure(figsize=(10, 6))
@@ -148,6 +150,7 @@ def plot_histogram():
     # Show the plot
     return fig
 
+st.write("This visualization displays Airbnb prices across various markets with outliers removed to give you a clearer view of typical pricing. Outliers are identified and excluded based on the Interquartile Range (IQR), which is calculated using the 25th percentile (Q1) and the 75th percentile (Q3) of the price data. This method helps to remove extreme values that could skew the results and allow you to focus on the most relevant price ranges.")
 def plot_boxplot():
     # Create a Seaborn boxplot for rental prices
     fig = plt.figure(figsize=(12, 6))

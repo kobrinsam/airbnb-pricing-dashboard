@@ -8,7 +8,6 @@ numpy
 argparse
 joblib
 scikit-learn
-shiny
 ipyleaflet
 shinywidgets
 ipywidgets

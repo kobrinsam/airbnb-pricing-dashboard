@@ -137,8 +137,8 @@ def ngram_analysis(df, n=2):
 
 # Function to run all functions
 def create_visualizations(city):
-    # Enclose the city name in single quotes
-    sql_query = f"SELECT * FROM REVIEWS_SENTIMENT_SCORES SAMPLE (25) WHERE market = '{city}';" # randomly sample 25% of the data
+    
+    sql_query = f"SELECT market, clean_comments, review_date FROM REVIEWS_SENTIMENT_SCORES SAMPLE (10000 ROWS) WHERE market = '{city}';" 
     
     city_df = get_data(sql_query, conn)
     # Column names are capitalized in Snowflake
