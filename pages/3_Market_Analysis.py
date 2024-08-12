@@ -125,19 +125,24 @@ if st.session_state['map_data'] is not None:
 
 
 st.write('Distribution of Airbnb Prices for All Markets')
-# Plot the histogram
-plt.figure(figsize=(10, 6))
 
-# Drop NaN values and create the histogram
-plt.hist(listings_cleaned_h3['price'].dropna(), bins=30, edgecolor='black')
+def plot_histogram():
+    # Plot the histogram
+    fig = plt.figure(figsize=(10, 6))
 
-# Add titles and labels
-plt.title('Histogram of Airbnb Prices for All Markets')
-plt.xlabel('Price')
-plt.ylabel('Frequency')
+    # Drop NaN values and create the histogram
+    plt.hist(listings_cleaned_h3['price'].dropna(), bins=30, edgecolor='black')
 
-# Display grid for better readability
-plt.grid(True)
+    # Add titles and labels
+    plt.title('Histogram of Airbnb Prices for All Markets')
+    plt.xlabel('Price')
+    plt.ylabel('Frequency')
 
-# Show the plot
-plt.show()
+    # Display grid for better readability
+    plt.grid(True)
+
+    # Show the plot
+    return fig
+
+fig1 = plot_histogram()
+st.pyplot(fig1)
