@@ -5,7 +5,20 @@ st.set_page_config(
     page_icon="🏠",
 )
 
-st.image("photo_1.png", width=300)
+# Use CSS to center the image and make it responsive
+st.markdown("""
+    <style>
+    .centered-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+# Display the image with the custom class
+st.image("photo_1.png", use_column_width=True, class_="centered-image")
 
 st.markdown("""
     <div style="text-align: center;">

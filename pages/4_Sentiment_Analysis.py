@@ -23,7 +23,7 @@ current_directory = os.getcwd()
 sys.path.append(os.path.abspath(os.path.join(current_directory, '..')))
 
 # Import the helper_functions module
-from helper_functions import connect_to_snowflake
+from helper_functions import connect_to_snowflake, get_data
 
 # Cache Snowflake connection to avoid reconnecting on each run
 @st.cache_resource
@@ -64,20 +64,8 @@ market = st.selectbox("Market",  sorted(markets_dict.values()))
 reverse_markets_dict = {v: k for k, v in markets_dict.items()}
 selected_market = reverse_markets_dict[market]
 
-# Function to get data
-def fetch_data(query):
-    try:
-        # Execute the query and fetch the data into a DataFrame
-        return(pd.read_sql(query, conn))
-    
-    except Exception as e:
-        print(f"Failed to execute query due to error: {e}")
 
-
-# Clear the progress bar and status text when done
-# progress_bar.empty()
-# status_text.text("Download complete!")
-
+# Instantiate stop words
 stop_words = set(stopwords.words('english'))
 
 
@@ -149,9 +137,10 @@ def ngram_analysis(df, n=2):
 # Function to run all functions
 def create_visualizations(city):
     # Enclose the city name in single quotes
-    city_query = f"SELECT * FROM REVIEWS_SENTIMENT_SCORES SAMPLE (25) WHERE market = '{city}';" # randomly sample 25% of the data
+    sql_query = f"SELECT * FROM REVIEWS_SENTIMENT_SCORES SAMPLE (25) WHERE market = '{city}';" # randomly sample 25% of the data
     
-    city_df = fetch_data(city_query)
+    city_df = get_data(sql_query, conn)
+    # Column names are capitalized in Snowflake
     city_df.columns = [col.lower() for col in city_df.columns]
         
     # Generate and display the word cloud
