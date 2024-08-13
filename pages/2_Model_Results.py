@@ -94,7 +94,7 @@ def plot_model_performance():
     # Return the figure
     return fig
     
-
+st.divider()
 st.subheader('Original Model')
 st.write('### Model Performance')
 fig1 = plot_model_performance()
