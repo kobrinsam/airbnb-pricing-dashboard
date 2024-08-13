@@ -131,6 +131,7 @@ price_recommendation = st.session_state['price_recommendation']
 if st.session_state['price_recommendation'] is not None:
     st.markdown(f"Recommended Price: **${price_recommendation[0]:.2f}**")
 
+st.write('')
 st.subheader(f'Predicted Prices for {market}')
 st.write('Hexagons shown have a diameter of 1.4 km or 0.87 miles')
 
