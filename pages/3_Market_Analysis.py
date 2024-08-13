@@ -140,7 +140,7 @@ def plot_histogram():
     plt.hist(listings_cleaned_h3['price'].dropna(), bins=30, edgecolor='black')
 
     # Add titles and labels
-    plt.title('Distribution of Airbnb Prices for Markets')
+    plt.title('Distribution of Airbnb Prices for All Markets')
     plt.xlabel('Price')
     plt.ylabel('Frequency')
 
@@ -150,7 +150,7 @@ def plot_histogram():
     # Show the plot
     return fig
 
-st.write("This visualization displays Airbnb prices across various markets with outliers removed to give you a clearer view of typical pricing. Outliers are identified and excluded based on the Interquartile Range (IQR), which is calculated using the 25th percentile (Q1) and the 75th percentile (Q3) of the price data. This method helps to remove extreme values that could skew the results and allow you to focus on the most relevant price ranges.")
+st.write("The visualizations display Airbnb prices across markets with outliers removed to give you a clearer view of typical pricing. Outliers are identified and excluded based on the Interquartile Range (IQR), which is calculated using the 25th percentile (Q1) and the 75th percentile (Q3) of the price data. This method helps to remove extreme values that could skew the results and allow you to focus on the most relevant price ranges.")
 def plot_boxplot():
     # Create a Seaborn boxplot for rental prices
     fig = plt.figure(figsize=(12, 6))
