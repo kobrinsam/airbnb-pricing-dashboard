@@ -82,9 +82,9 @@ markets_dict = {
 # User input fields
 market = st.selectbox("Market",  sorted(markets_dict.values()))
 room_type = st.selectbox("Room Type", ['Entire home/apt', 'Hotel room','Private room','Shared room'])
-beds = st.slider("Number of Beds", min_value=1, max_value=6, value=0)
-accommodates = st.slider("Number of Accommodates", min_value=1, max_value=10, value=0)
-bathrooms = st.slider("Number of Bathrooms", min_value=1, max_value=5, value=0)
+beds = st.slider("Number of Beds", min_value=1, max_value=6, value=1)
+accommodates = st.slider("Number of Accommodates", min_value=1, max_value=10, value=1)
+bathrooms = st.slider("Number of Bathrooms", min_value=1, max_value=5, value=1)
 
 # Map the selected market back, e.g., New York City to new-york-city
 reverse_markets_dict = {v: k for k, v in markets_dict.items()}

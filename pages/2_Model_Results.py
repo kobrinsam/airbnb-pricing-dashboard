@@ -132,13 +132,17 @@ def plot_feature_importance():
     # Return the figure
     return fig
 
-st.subheader('Model Performance')
+st.subheader('Original Model')
+st.write('### Model Performance')
 fig1 = plot_model_performance()
 st.pyplot(fig1)
 
-st.subheader('Feature Performance')
-fig2 = plot_feature_importance()
-st.pyplot(fig2)
+st.write('### Feature Performance')
+st.image("feature_importance.png", use_column_width=True)
 
-st.subheader('Prediction Errors for H3 Model')
-st.write('Place holder for histogram of prediction errors')
+st.subheader('H3 Model')
+st.write('### Correlation Matrix')
+st.image("h3_model_correlation_matrix.png", use_column_width=True)
+
+st.write('### Distribution of errors')
+st.image("h3_model_errors.png", use_column_width=True)
