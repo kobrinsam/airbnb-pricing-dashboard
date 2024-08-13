@@ -25,14 +25,22 @@ st.subheader("Motivation")
 st.write("As platforms like Airbnb and VRBO have grown in popularity, hosting has become a common way to make additional income. However, setting the right price for a property can be difficult. Each listing is unique, affected by factors like location, amenities, and the number of bedrooms and bathrooms. Additionally, demand fluctuates with the day of the week, peak seasons, weather conditions, and holidays. Although tools such as AirDNA can help with pricing, they often involve sharing personal information, which can be a privacy concern. We aimed to develop an open-source tool that allows Airbnb hosts to estimate listing prices based on their property's attributes while ensuring privacy is preserved.")
 
 st.subheader("Features")
-st.markdown("- Interactive dashboard with user inputs for listing details")
-st.markdown("- Price prediction using a trained machine learning model")
-st.markdown("- Map visualization to select the potential Airbnb listing location")
+st.markdown("- Interactive dashboard with user inputs for listing details.")
+st.markdown("- Price prediction using a trained machine learning model.")
+st.markdown("- Map visualization to select the potential Airbnb listing price.")
 
 st.subheader("Hot to use")
 st.markdown("- Go to **Price Prediction** page.  Enter the details of your Airbnb listing.")
 st.markdown("- The dashboard will display the predicted list price for your Airbnb listing.")
 st.markdown("- Leverage the insights provided to strategically set your listing price.")
+
+st.subheader("Additional Resources")
+st.markdown(
+    """
+    A [full report](https://docs.google.com/document/d/1MaAcnBMZyobaA8xIv-hmPaDRzPohxaQikKjxP2Gtrk8/edit?usp=sharing)and [GitHub repo](https://github.com/sachikou/airbnb-pricing-dashboard/blob/main/pages/feature_importance.png) accompany this app.
+    """
+)
+
 
 
 st.markdown("""
