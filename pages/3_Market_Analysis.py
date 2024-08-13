@@ -99,7 +99,7 @@ if selected_market != st.session_state['selected_market']:
     min_price = int(filtered_listings['price'].min())
     max_price = int(filtered_listings['price'].max())
     median_price = int(filtered_listings['price'].median())
-    unique_listings = filtered_listings.nunique()
+    unique_listings = len(filtered_listings)
 
     st.markdown(f'- Number of listings: {unique_listings}')
     st.markdown(f'- Min price: **${min_price}**')
