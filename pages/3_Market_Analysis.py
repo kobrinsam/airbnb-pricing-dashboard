@@ -96,6 +96,14 @@ if selected_market != st.session_state['selected_market']:
     # Filter the listings based on user input
     filtered_listings = listings_cleaned_h3[listings_cleaned_h3['market'] == selected_market]
 
+    min_price = filtered_listings['price'].min()
+    max_price = filtered_listings['price'].max()
+    median_price = filtered_listings['price'].median()
+
+    st.write(f'Min price: {min_price}')
+    st.write(f'Median price: {median_price}')
+    st.write(f'Max price: {max_price}')
+
     # Store the predictions in session state
     st.session_state['map_data'] = filtered_listings
 
