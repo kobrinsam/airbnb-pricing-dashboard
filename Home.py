@@ -37,7 +37,7 @@ st.markdown("- Leverage the insights provided to strategically set your listing 
 st.subheader("Additional Resources")
 st.markdown(
     """
-    A [full report](https://docs.google.com/document/d/1MaAcnBMZyobaA8xIv-hmPaDRzPohxaQikKjxP2Gtrk8/edit?usp=sharing)and [GitHub repo](https://github.com/sachikou/airbnb-pricing-dashboard/blob/main/pages/feature_importance.png) accompany this app.
+    A [full report](https://docs.google.com/document/d/1MaAcnBMZyobaA8xIv-hmPaDRzPohxaQikKjxP2Gtrk8/edit?usp=sharing)and [GitHub repo](https://github.com/kobrinsam/airbnb-pricing-dashboard) accompany this app.
     """
 )
 
