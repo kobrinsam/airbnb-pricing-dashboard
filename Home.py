@@ -17,6 +17,12 @@ st.markdown("""
 
 st.markdown("""
     <div style="text-align: center;">
+        Markets: Albany, NY; New York City, NY; Chicago, IL; Los Angeles, CA; San Francisco, CA; Seattle, WA; Washington, D.C. 
+    </div>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+    <div style="text-align: center;">
         <hr style="width: 100%; border-top: 2px solid #ccc;">
     </div>
 """, unsafe_allow_html=True)
