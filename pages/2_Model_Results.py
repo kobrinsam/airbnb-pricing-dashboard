@@ -96,17 +96,17 @@ def plot_model_performance():
     
 st.divider()
 st.subheader('Original Model')
-st.write('### Model Performance')
+st.write('#### Model Performance')
 fig1 = plot_model_performance()
 st.pyplot(fig1)
 
-st.write('### Feature Performance')
+st.write('#### Feature Performance')
 st.image("images/feature_importance.png", use_column_width=True)
 
 st.divider()
 st.subheader('H3 Model')
-st.write('### Correlation Matrix')
+st.write('#### Correlation Matrix')
 st.image("images/h3_model_correlation_matrix.png", use_column_width=True)
 
-st.write('### Distribution of errors')
+st.write('#### Distribution of errors')
 st.image("images/h3_model_errors.png", use_column_width=True)
