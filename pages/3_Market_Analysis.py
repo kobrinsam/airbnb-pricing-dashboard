@@ -86,7 +86,7 @@ if 'map_data' not in st.session_state:
 
 st.subheader(f'Median Prices for {market}')
 st.write('Hexagons shown have a diameter of 1.4 km or 0.87 miles')
-st.write('Place holder for min, max, median prices for market')
+st.write('Summary Statistics')
 
 # Additional feature: Filter listings and generate predictions
 if selected_market != st.session_state['selected_market']:
@@ -96,13 +96,15 @@ if selected_market != st.session_state['selected_market']:
     # Filter the listings based on user input
     filtered_listings = listings_cleaned_h3[listings_cleaned_h3['market'] == selected_market]
 
-    min_price = filtered_listings['price'].min()
-    max_price = filtered_listings['price'].max()
-    median_price = filtered_listings['price'].median()
+    min_price = int(filtered_listings['price'].min())
+    max_price = int(filtered_listings['price'].max())
+    median_price = int(filtered_listings['price'].median())
+    unique_listings = filtered_listings.nunique()
 
-    st.markdown(f'- Min price: **{min_price}**')
-    st.markdown(f'- Median price: **{median_price}**')
-    st.markdown(f'Max price: **{max_price}**')
+    st.markdown(f'- Number of listings: {unique_listings}')
+    st.markdown(f'- Min price: **${min_price}**')
+    st.markdown(f'- Median price: **${median_price}**')
+    st.markdown(f'- Max price: **${max_price}**')
 
     # Store the predictions in session state
     st.session_state['map_data'] = filtered_listings
