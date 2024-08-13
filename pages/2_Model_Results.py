@@ -37,9 +37,9 @@ def read_s3_file(file_key):
     obj = s3.get_object(Bucket=bucket_name, Key=file_key)
     return obj['Body'].read()
 
-def load_model():
-    model_data = read_s3_file('models/regression_pipeline.joblib')
-    return joblib.load(BytesIO(model_data))
+# def load_model():
+#     model_data = read_s3_file('models/regression_pipeline.joblib')
+#     return joblib.load(BytesIO(model_data))
 
 @st.cache_data
 def load_experiment_logs():
@@ -98,39 +98,39 @@ def plot_model_performance():
     # Return the figure
     return fig
     
-model = load_model()
+# model = load_model()
 
-def plot_feature_importance():
+# def plot_feature_importance():
 
-    # Get feature importances
-    feature_importances =  model.named_steps['regressor'].feature_importances_
-    #list of features in the model
-    numerical_features = ['accommodates', 'bathrooms', 'beds', 'latitude', 'longitude']
-    categorical_features = ["market", "room_type"] 
-    # Get the one-hot encoded feature names for categorical features
-    onehot_feature_names = model.named_steps['preprocessor'].transformers_[1][1].named_steps['onehot'].get_feature_names_out(categorical_features)
+#     # Get feature importances
+#     feature_importances =  model.named_steps['regressor'].feature_importances_
+#     #list of features in the model
+#     numerical_features = ['accommodates', 'bathrooms', 'beds', 'latitude', 'longitude']
+#     categorical_features = ["market", "room_type"] 
+#     # Get the one-hot encoded feature names for categorical features
+#     onehot_feature_names = model.named_steps['preprocessor'].transformers_[1][1].named_steps['onehot'].get_feature_names_out(categorical_features)
 
-    # Combine numerical and categorical feature names
-    all_feature_names = numerical_features + onehot_feature_names.tolist()
+#     # Combine numerical and categorical feature names
+#     all_feature_names = numerical_features + onehot_feature_names.tolist()
 
-    # Create a dictionary of feature importances
-    feature_importance_dict = dict(zip(all_feature_names, feature_importances))
-    feature_importance_df = pd.DataFrame(feature_importance_dict.items(), columns=['Feature', 'Importance']).sort_values('Importance', ascending=False)
+#     # Create a dictionary of feature importances
+#     feature_importance_dict = dict(zip(all_feature_names, feature_importances))
+#     feature_importance_df = pd.DataFrame(feature_importance_dict.items(), columns=['Feature', 'Importance']).sort_values('Importance', ascending=False)
 
-    # Sort the DataFrame by importance
-    feature_importance_df = feature_importance_df.sort_values('Importance')
+#     # Sort the DataFrame by importance
+#     feature_importance_df = feature_importance_df.sort_values('Importance')
 
-    # Create the bar chart
-    fig = plt.figure(figsize=(10, 6))
-    plt.barh(feature_importance_df['Feature'], feature_importance_df['Importance'], color='darkblue')
+#     # Create the bar chart
+#     fig = plt.figure(figsize=(10, 6))
+#     plt.barh(feature_importance_df['Feature'], feature_importance_df['Importance'], color='darkblue')
 
-    # Add a title and axis titles
-    plt.title('Feature Importance Score (Random Forests)', fontsize=20)
-    plt.xlabel('Importance')
-    plt.ylabel('Feature Name')
+#     # Add a title and axis titles
+#     plt.title('Feature Importance Score (Random Forests)', fontsize=20)
+#     plt.xlabel('Importance')
+#     plt.ylabel('Feature Name')
 
-    # Return the figure
-    return fig
+#     # Return the figure
+#     return fig
 
 st.subheader('Original Model')
 st.write('### Model Performance')
