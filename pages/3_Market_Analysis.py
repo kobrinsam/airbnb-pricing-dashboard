@@ -100,9 +100,9 @@ if selected_market != st.session_state['selected_market']:
     max_price = filtered_listings['price'].max()
     median_price = filtered_listings['price'].median()
 
-    st.write(f'Min price: {min_price}')
-    st.write(f'Median price: {median_price}')
-    st.write(f'Max price: {max_price}')
+    st.markdown(f'- Min price: **{min_price}**')
+    st.markdown(f'- Median price: **{median_price}**')
+    st.markdown(f'Max price: **{max_price}**')
 
     # Store the predictions in session state
     st.session_state['map_data'] = filtered_listings
