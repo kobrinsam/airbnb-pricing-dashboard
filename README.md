@@ -4,15 +4,18 @@ This project is a web-based dashboard that helps Airbnb hosts determine the best
 
 ## Features
 
-- Interactive dashboard with user inputs for listing details
-- Price prediction using a trained machine learning model
-- Map visualization to select the potential AirBnB listing location
+- Interactive dashboard with user inputs for AirBnB listing details
+- Price prediction using a Random Forest machine learning model
+- Map visualization showing predicted prices across neigborhoods of selected markets
+- Documentation of selected exploratory data analysis and model performance
 
 ## Installation
 
 1. Clone this repository.
 2. Install the required dependencies with `pip install -r requirements.txt`.
-3. Run the dashboard with `python app.py`.
+3. Run the dashboard locally with `streamlit run Home.py`. App is published at https://airbnb-pricing-dashboard-m2gvwrulwcmashpo95zmal.streamlit.app/
+
+In addition to the dashboard above, we performed exploratory data analysis, data cleaning, and model training as preparation for production. Data engineering scripts can be found in the data_engineering folder. Model training occurred in train.ipynb and H3_Model_Development.ipynb. Our exploratory data analysis can be reproduced from the Exploratory_Data_Analysis folder. Model run results are logged in experiment_log.json.
 
 ## Usage
 
