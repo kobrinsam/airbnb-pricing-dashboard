@@ -83,7 +83,7 @@ markets_dict = {
 market = st.selectbox("Market",  sorted(markets_dict.values()))
 room_type = st.selectbox("Room Type", ['Entire home/apt', 'Hotel room','Private room','Shared room'])
 beds = st.slider("Number of Beds", min_value=1, max_value=6, value=1)
-accommodates = st.slider("Number of Accommodates", min_value=1, max_value=10, value=1)
+accommodates = st.slider("Accommodates", min_value=1, max_value=10, value=1)
 bathrooms = st.slider("Number of Bathrooms", min_value=1, max_value=5, value=1)
 
 # Map the selected market back, e.g., New York City to new-york-city
@@ -132,7 +132,7 @@ if st.session_state['price_recommendation'] is not None:
     st.markdown(f"Recommended Price: **${price_recommendation[0]:.2f}**")
 
 st.write('')
-st.subheader(f'Predicted Prices for {market}')
+st.subheader(f'Predicted listing prices for {market}')
 st.write('Hexagons shown have a diameter of 1.4 km or 0.87 miles')
 
 # Additional feature: Filter listings and generate predictions
