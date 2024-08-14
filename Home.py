@@ -32,7 +32,7 @@ st.markdown("- Interactive dashboard with user inputs for listing details.")
 st.markdown("- Price prediction using a trained machine learning model.")
 st.markdown("- Map visualization to select the potential Airbnb listing price.")
 
-st.subheader("Hot to use")
+st.subheader("How to use")
 st.markdown("- Go to **Price Prediction** page.  Enter the details of your Airbnb listing.")
 st.markdown("- The dashboard will display the predicted list price for your Airbnb listing.")
 st.markdown("- Leverage the insights provided to strategically set your listing price.")
