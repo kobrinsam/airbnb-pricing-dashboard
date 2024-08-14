@@ -11,7 +11,7 @@ st.image("images/photo_1.png", use_column_width=True)
 
 st.markdown("""
     <div style="text-align: center;">
-        Unlock your Airbnb potential with pricing strategy. <br> Our new app offers a solution for Airbnb hosts to predict prices based on your property’s characteristics.
+        Unlock your Airbnb's potential with a listing price strategy. <br> Our new app offers a solution for Airbnb hosts to predict prices based on your property’s characteristics.
     </div>
 """, unsafe_allow_html=True)
 

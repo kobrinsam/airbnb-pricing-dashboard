@@ -10,7 +10,7 @@ import os
 from dotenv import load_dotenv
 
 # Streamlit interface
-st.title("Airbnb Price Recommendation")
+st.title("Airbnb Listing Price Prediction")
 
 # Load environment variables from a .env file
 load_dotenv()
@@ -100,7 +100,7 @@ if 'map_data' not in st.session_state:
     st.session_state['map_data'] = None
 
 # Predict button
-if st.button("Get Price Recommendation"):
+if st.button("Get Listing Price Prediction"):
     # Filter hexagon_aggregated_data for the selected market
     market_data = hexagon_aggregated_data[hexagon_aggregated_data['market'] == selected_market]
     
