@@ -84,7 +84,7 @@ if 'selected_market' not in st.session_state:
 if 'map_data' not in st.session_state:
     st.session_state['map_data'] = None
 
-st.subheader(f'Median Prices for {market}')
+st.subheader(f'Actual median listing prices for {market}')
 st.write('Hexagons shown have a diameter of 1.4 km or 0.87 miles')
 st.write('Summary Statistics')
 
