@@ -163,6 +163,7 @@ if selected_market != st.session_state['selected_market']:
         columns=['h3_index', 'predicted_price'],
         key_on='feature.properties.h3_index',
         fill_color='OrRd',
+        name='Hexagon',
         fill_opacity=0.5,
         line_opacity=0.2,
         legend_name='Predicted Price'
