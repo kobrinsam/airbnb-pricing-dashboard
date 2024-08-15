@@ -9,6 +9,9 @@ from io import BytesIO, StringIO
 import os
 from dotenv import load_dotenv
 
+# Streamlit interface
+st.title("Airbnb Listing Price Prediction")
+
 # Load environment variables from a .env file
 load_dotenv()
 
@@ -130,9 +133,10 @@ if st.button("Get Listing Price Prediction"):
 price_recommendation = st.session_state['price_recommendation']
 
 if st.session_state['price_recommendation'] is not None:
-    st.write(f"Recommended Price: ${price_recommendation[0]:.2f}")
+    st.markdown(f"Recommended Price: **${price_recommendation[0]:.2f}**")
 
-st.subheader(f'Predicted Prices for {market}')
+st.write('')
+st.subheader(f'Predicted listing prices for {market}')
 st.write('Hexagons shown have a diameter of 1.4 km or 0.87 miles')
 
 # Additional feature: Filter listings and generate predictions
@@ -163,6 +167,7 @@ if selected_market != st.session_state['selected_market']:
         columns=['h3_index', 'predicted_price'],
         key_on='feature.properties.h3_index',
         fill_color='OrRd',
+        name='Hexagon',
         fill_opacity=0.5,
         line_opacity=0.2,
         legend_name='Predicted Listing Price'

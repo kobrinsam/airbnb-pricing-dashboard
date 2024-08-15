@@ -14,3 +14,6 @@
 *.html
 
 __pycache__/
+
+# Ignore TOML files
+*.toml
