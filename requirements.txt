@@ -1,11 +1,11 @@
 boto3==1.21.32
 folium==0.17.0
 joblib==1.1.0
-matplotlib==3.1.1
+matplotlib
 nltk==3.7
 pandas==1.5.3
 python-dotenv==1.0.1
-scikit_learn==1.0.2
+scikit_learn
 snowflake_connector_python==3.11.0
 streamlit==1.21.0
 streamlit_folium==0.22.0
