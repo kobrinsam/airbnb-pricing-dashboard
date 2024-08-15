@@ -15,21 +15,21 @@ def connect_to_snowflake(schema_name=None):
     # Load environment variables from a .env file
     load_dotenv()
 
-    TEMP_USER = os.getenv('SNOWSQL_TEMP_USER')
-    TEMP_USER_PASSWORD = os.getenv('SNOWSQL_TEMP_PWD')
+    SNOWFLAKE_USER = os.getenv('SNOWFLAKE_USER')
+    SNOWFLAKE_PASSWORD = os.getenv('SNOWFLAKE_PWD')
     SNOWFLAKE_ACCOUNT = os.getenv('SNOWFLAKE_ACCOUNT')
     
-    if not TEMP_USER:
-        logger.error("Environment variable SNOWSQL_TEMP_USER must be set")
+    if not SNOWFLAKE_USER:
+        logger.error("Environment variable SNOWFLAKE_USER must be set")
         return None
-    if not TEMP_USER_PASSWORD:
-        logger.error("Environment variable SNOWSQL_TEMP_PWD must be set")
+    if not SNOWFLAKE_PASSWORD:
+        logger.error("Environment variable SNOWFLAKE_PWD must be set")
         return None
 
     try:
         conn = snowflake.connector.connect(
-            user=TEMP_USER,
-            password=TEMP_USER_PASSWORD,
+            user=SNOWFLAKE_USER,
+            password=SNOWFLAKE_PASSWORD,
             account=SNOWFLAKE_ACCOUNT,
             warehouse='COMPUTE_WH',
             database='AIRBNB',
