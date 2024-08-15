@@ -9,9 +9,6 @@ from io import BytesIO, StringIO
 import os
 from dotenv import load_dotenv
 
-# Streamlit interface
-st.title("Airbnb Listing Price Prediction")
-
 # Load environment variables from a .env file
 load_dotenv()
 
