@@ -10,3 +10,4 @@ snowflake_connector_python
 streamlit
 streamlit_folium
 wordcloud
+h3
