@@ -68,6 +68,10 @@ hexagon_aggregated_data = load_hexagon_data()
 listings_cleaned_h3 = load_listings_data()
 geojson_data = load_geojson_data()
 
+
+# Streamlit interface
+st.title("Airbnb Lising Price Prediction")
+
 # create market mapping
 markets_dict = {
     'albany':'Albany',
@@ -82,9 +86,9 @@ markets_dict = {
 # User input fields
 market = st.selectbox("Market",  sorted(markets_dict.values()))
 room_type = st.selectbox("Room Type", ['Entire home/apt', 'Hotel room','Private room','Shared room'])
-beds = st.slider("Number of Beds", min_value=1, max_value=6, value=1)
-accommodates = st.slider("Accommodates", min_value=1, max_value=10, value=1)
-bathrooms = st.slider("Number of Bathrooms", min_value=1, max_value=5, value=1)
+beds = st.slider("Number of Beds", min_value=1, max_value=10, value=1)
+accommodates = st.slider("Number of Accommodates", min_value=1, max_value=16, value=1)
+bathrooms = st.slider("Number of Bathrooms", min_value=1, max_value=6, value=1)
 
 # Map the selected market back, e.g., New York City to new-york-city
 reverse_markets_dict = {v: k for k, v in markets_dict.items()}
@@ -166,7 +170,7 @@ if selected_market != st.session_state['selected_market']:
         name='Hexagon',
         fill_opacity=0.5,
         line_opacity=0.2,
-        legend_name='Predicted Price'
+        legend_name='Predicted Listing Price'
     ).add_to(m)
 
     # Add tile layers for different viewing modes
