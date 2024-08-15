@@ -14,13 +14,13 @@ This project is a web-based dashboard that helps Airbnb hosts determine the best
 1. Clone this repository.
 2. Install the required dependencies with `pip install -r requirements.txt`.
 3. Set up AWS and Snowflake credentials (see section below for details).
-4. Run the dashboard locally with `streamlit run Home.py`. App is published at https://airbnb-pricing-dashboard-m2gvwrulwcmashpo95zmal.streamlit.app/
+4. Run the dashboard locally with `streamlit run Home.py`. The Streamlit app is hosted online [here](https://airbnb-pricing-dashboard-m2gvwrulwcmashpo95zmal.streamlit.app/).
 
 In addition to the dashboard above, we performed exploratory data analysis, data cleaning, and model training as preparation for production. Data engineering scripts can be found in the data_engineering folder. Model training occurred in train.ipynb and H3_Model_Development.ipynb. Our exploratory data analysis can be reproduced from the Exploratory_Data_Analysis folder. Model run results are logged in experiment_log.json.
 
-# AWS and Snowflake Setup
+### AWS and Snowflake Setup
 
-## Setting Up Your Credentials
+#### Setting Up Your Credentials
 
 The `.env` file serves as a centralized location to store sensitive information such as API keys, access tokens, database connection strings, etc. Create a blank file and save it as `.env` with the following keys:
 
@@ -32,22 +32,23 @@ SNOWFLAKE_PWD="your_password"
 SNOWFLAKE_ACCOUNT="snowflake_account"
 ```
 
-## AWS
+#### AWS
 
-To follow along you will need an AWS and Snowflake account. Start by creating a bucket and creating the following folder structure:
+To follow along, you will need an AWS and Snowflake account. Start by creating a bucket and creating the following folder structure:
+```
 raw/
 processed/
 models/
-
-The Python scripts will download, process, and store the data within the necessary folders. After setting up your environment variables, a connection to S3 can be established using :
-
+```
+The Python scripts will download, process, and store the data within the necessary folders. After setting up your environment variables, a connection to S3 can be established using:
+```python
 import boto3
 
 s3 = boto3.resource('s3')
 bucket = s3.Bucket(bucket_name)
+```
 
-
-## Snowflake
+#### Snowflake
 
 Sign up for a free trial with [Snowflake](https://www.snowflake.com/en/) and store your credentials in the .env file. Setup two schemas, one called ODS and the other FEATURE_STORE. These two schemas will be used to store the data after initial processing is completed and after feature engineering is completed.  You will need to create an external stage which links your S3 bucket to your Snowflake account. Instructions can be found [here](https://docs.snowflake.com/en/user-guide/data-load-s3-create-stage). Once your external stage is setup, Snowflake will load data from S3 into the ODS schema.
 
