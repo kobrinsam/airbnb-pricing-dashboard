@@ -30,6 +30,7 @@ AWS_SECRET_ACCESS_KEY="your_secret_key"
 SNOWFLAKE_USER="your_username"
 SNOWFLAKE_PWD="your_password"
 SNOWFLAKE_ACCOUNT="snowflake_account"
+```
 
 ## AWS
 
