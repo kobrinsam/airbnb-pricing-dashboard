@@ -11,3 +11,4 @@ streamlit
 streamlit_folium
 wordcloud
 h3
+seaborn
