@@ -67,6 +67,3 @@ Please ensure compliance with Inside AirBnB's license for usage and distribution
 
 This project is licensed under the MIT LICENSE - see the [LICENSE](LICENSE) file for details.
 
-## Credits
-
-This project was developed with the assistance of [GitHub Copilot](https://github.com/features/copilot), which was used to expedite the code development process. GitHub Copilot provided code suggestions and code completions, helping to expedite the development process.
